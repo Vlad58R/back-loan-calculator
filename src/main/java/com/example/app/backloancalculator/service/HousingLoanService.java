@@ -25,7 +25,7 @@ public class HousingLoanService {
             Double a = Double.parseDouble(amount);
             Double y = Double.parseDouble(years);
             List<HousingLoanPayment> payments = new ArrayList<>();
-            payments.add(new HousingLoanPayment(loanPercentage.getPercent() * a * y));
+            payments.add(new HousingLoanPayment(1, loanPercentage.getPercent() * a * y));
             response.setPayments(payments);
         } catch (Exception e) {
             response.setErrorMessage(e.getMessage());
