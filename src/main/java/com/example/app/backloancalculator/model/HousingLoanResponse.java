@@ -2,29 +2,25 @@ package com.example.app.backloancalculator.model;
 
 import com.example.app.backloancalculator.model.domain.HousingLoanPayment;
 
-import java.util.List;
 
 public class HousingLoanResponse {
-    private List<HousingLoanPayment> payments;
+    private HousingLoanPayment housingLoanPayment;
     private String errorMessage;
 
     public HousingLoanResponse() {
     }
 
-    public HousingLoanResponse(List<HousingLoanPayment> payments) {
-        this.payments = payments;
-    }
-
-    public HousingLoanResponse(String errorMessage) {
+    public HousingLoanResponse(HousingLoanPayment housingLoanPayment, String errorMessage) {
+        this.housingLoanPayment = housingLoanPayment;
         this.errorMessage = errorMessage;
     }
 
-    public List<HousingLoanPayment> getPayments() {
-        return payments;
+    public HousingLoanPayment getHousingLoanPayment() {
+        return housingLoanPayment;
     }
 
-    public void setPayments(List<HousingLoanPayment> payments) {
-        this.payments = payments;
+    public void setHousingLoanPayment(HousingLoanPayment housingLoanPayment) {
+        this.housingLoanPayment = housingLoanPayment;
     }
 
     public String getErrorMessage() {

@@ -1,25 +1,31 @@
 package com.example.app.backloancalculator.model.domain;
 
-import java.util.List;
-
-public class HousingLoanPayment {
+public class HousingLoanMonthlyPayment {
+    private Integer month;
     private Double totalPayment;
     private Double percentagePayment;
     private Double loanPayment;
-    private List<HousingLoanMonthlyPayment> housingLoanMonthlyPayments;
 
 
-    public HousingLoanPayment() {
+    public HousingLoanMonthlyPayment() {
     }
 
-    public HousingLoanPayment(Double totalPayment,
-                              Double percentagePayment,
-                              Double loanPayment,
-                              List<HousingLoanMonthlyPayment> housingLoanMonthlyPayments) {
+    public HousingLoanMonthlyPayment(Integer month,
+                                     Double totalPayment,
+                                     Double percentagePayment,
+                                     Double loanPayment) {
+        this.month = month;
         this.totalPayment = totalPayment;
         this.percentagePayment = percentagePayment;
         this.loanPayment = loanPayment;
-        this.housingLoanMonthlyPayments = housingLoanMonthlyPayments;
+    }
+
+    public Integer getMonth() {
+        return month;
+    }
+
+    public void setMonth(Integer month) {
+        this.month = month;
     }
 
     public Double getTotalPayment() {
@@ -44,13 +50,5 @@ public class HousingLoanPayment {
 
     public void setLoanPayment(Double loanPayment) {
         this.loanPayment = loanPayment;
-    }
-
-    public List<HousingLoanMonthlyPayment> getHousingLoanMonthlyPayments() {
-        return housingLoanMonthlyPayments;
-    }
-
-    public void setHousingLoanMonthlyPayments(List<HousingLoanMonthlyPayment> housingLoanMonthlyPayments) {
-        this.housingLoanMonthlyPayments = housingLoanMonthlyPayments;
     }
 }
