@@ -8,7 +8,6 @@ import com.example.app.backloancalculator.repository.PercentageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,17 +17,17 @@ public class HousingLoanService {
     @Autowired
     PercentageRepository percentageRepository;
 
-    @Transactional
     public HousingLoanResponse getPercentageByType(String type, String amount, String years) {
         LoanPercentage loanPercentage = percentageRepository.findByType(type);
         HousingLoanResponse response = new HousingLoanResponse();
+
         try {
             Double a = Double.parseDouble(amount);
             Double y = Double.parseDouble(years);
             HousingLoanPayment housingLoanPayment = calculatePayments(a, y, loanPercentage.getPercent());
             response.setHousingLoanPayment(housingLoanPayment);
         } catch (Exception e) {
-            response.setErrorMessage(e.getMessage());
+            response.setErrorMessage("Something went wrong, please try again");
         }
 
         return response;

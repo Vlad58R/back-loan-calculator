@@ -1,6 +1,7 @@
 package com.example.app.backloancalculator.model.domain;
 
 import java.util.List;
+import java.util.Objects;
 
 public class HousingLoanPayment {
     private Double totalPayment;
@@ -52,5 +53,18 @@ public class HousingLoanPayment {
 
     public void setHousingLoanMonthlyPayments(List<HousingLoanMonthlyPayment> housingLoanMonthlyPayments) {
         this.housingLoanMonthlyPayments = housingLoanMonthlyPayments;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        HousingLoanPayment that = (HousingLoanPayment) o;
+        return Objects.equals(totalPayment, that.totalPayment) && Objects.equals(percentagePayment, that.percentagePayment) && Objects.equals(loanPayment, that.loanPayment) && Objects.equals(housingLoanMonthlyPayments, that.housingLoanMonthlyPayments);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(totalPayment, percentagePayment, loanPayment, housingLoanMonthlyPayments);
     }
 }
